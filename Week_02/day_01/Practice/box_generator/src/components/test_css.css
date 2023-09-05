@@ -1,0 +1,10 @@
+.box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.color-box {
+    border: 1px solid black;
+    margin: 5px;
+  }
