@@ -1,6 +1,6 @@
 
 const StudentModel = require('../models/student.model')
-const studentsRoutes = require('../routes/students.routes')
+const studentsRoutes = require('../routes/students.routes') //- A revoir 
 
 
 //FIND ALL STUDENTS
@@ -30,7 +30,7 @@ module.exports.findAOneSudent = (req,res) => {
 module.exports.createStudent = (req,res) => {
     console.log(req.body);
     StudentModel.create(req.body)
-                .then(createResult =>{
+                .then( createResult => {
                     res.status(201).json(createResult)
                     console.log(createResult);
                 })
@@ -40,10 +40,7 @@ module.exports.createStudent = (req,res) => {
 // UPDATE STUDENT
 
 module.exports.updateStudent = (req, res) => {
-    StudentModel.findOneAndUpdate(
-        {_id:req.params.id},
-        req.body,
-        {new:true})
+    StudentModel.findOneAndUpdate( {_id:req.params.id}, req.body, {new:true})
         .then(result => res.status(200).json(result))
         .catch(error => res.status(400).json(error))
 }
@@ -51,11 +48,11 @@ module.exports.updateStudent = (req, res) => {
 // DELETE STUDENT
 
 module.exports.deleteStudent = (req, res) => {
-    StudentModel.deleteOne(
-        {_id:req.params.id})
+    StudentModel.deleteOne({_id:req.params.id})
         .then(result => res.status(200).json(result))
         .catch(error => res.status(400).json(error))
 }
 
 
 //! ===> GO to server.JS
+

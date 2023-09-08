@@ -8,7 +8,13 @@ app.use( express.urlencoded({ extended: true }) );
 require('./config/mongoose.config')
 
 
+//! IMPORT ALL ROUTES 
 
+const studentRoutes = require('./routes/jokes.routes')
+studentRoutes(app)
+
+
+//! IMPORT ALL ROUTES 
 
 // DEFINE PORT AS GLOBAL VARIABLE
 
