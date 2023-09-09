@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
 const Form = ({todoList, setTodoList}) => {
 
@@ -17,6 +17,11 @@ const Form = ({todoList, setTodoList}) => {
         })
 
     }
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todoList));
+      }, [todoList]);
+    
 
   return (
     <>

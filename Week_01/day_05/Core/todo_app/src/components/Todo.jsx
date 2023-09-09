@@ -1,6 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 const Todo = ({todoList,deleteTodo,setTodoList}) => {
+
+
+    useEffect(() => {
+        const storedTodoList = JSON.parse(localStorage.getItem('todos')) || [];
+        setTodoList(storedTodoList);
+      }, []);
+
+
   return (
     <div>
         {todoList.map((todo,idx) => 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Todo from './components/Todo'
 import Form from './components/Form'
@@ -16,6 +16,10 @@ function App() {
       const filtredTodos = todoList.filter((todo, idx) => idx != id)
       setTodoList(filtredTodos)
   }
+
+
+
+
 
   return (
     <>
