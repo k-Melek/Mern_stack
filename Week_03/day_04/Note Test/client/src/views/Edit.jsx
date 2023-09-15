@@ -10,7 +10,7 @@ const Edit = () => {
   const [errors, setErrors] = useState({ title: "", content: "" })
   const updateNote = (note) => {
     // e.preventDefault()
-    axios.put(`http://localhost:8000/api/notes/${id}`, note, { withCredentials: true })
+    axios.put(`http://localhost:8000/api/notes/${id}`, note)
       .then(response => {
         console.log(response.data)
         navigate('/notes')
@@ -27,17 +27,12 @@ const Edit = () => {
       })
   }
   useEffect(()=> {
-    axios.get(`http://localhost:8000/api/notes/${id}`, { withCredentials: true })
+    axios.get(`http://localhost:8000/api/notes/${id}`)
     .then(response => {
       console.log(response);
       setNote(response.data)
     })
-    .catch(error => {
-      console.log(error.response.status)
-      if (error.response.status === 401){
-        navigate('/')
-      }
-    })
+    .catch(error => console.log(error))
   }, [id])
   return (
     <div>

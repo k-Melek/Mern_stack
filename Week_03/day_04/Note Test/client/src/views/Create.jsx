@@ -7,7 +7,7 @@ const Create = (props) => {
     const [note, setNote] = useState({ title: "", content: "", isImportant: false })
     const [errors, setErrors] = useState({ title: "", content: "" })
     const createNote = (newNote) => {
-        axios.post('http://localhost:8000/api/notes', newNote, { withCredentials: true })
+        axios.post('http://localhost:8000/api/notes', newNote)
         .then(response => {
           console.log(response.data)
           navigate('/notes')

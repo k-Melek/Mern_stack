@@ -12,7 +12,7 @@ const DB = process.env.DB;
 
 app.use(
     express.json(), express.urlencoded({ extended: true }), 
-    cors({ credentials: true ,origin: 'http://localhost:5173'}), cookies()
+    cors({credentials: true}), cookies()
     );
 require('./config/mongoose.config')(DB)
 require('./routes/notes.routes')(app)
