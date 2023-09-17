@@ -18,11 +18,18 @@ module.exports = {
   // },
   register: async (req, res) => {
     // Register With Async
+    //test Email Exists
+    const userFromDB = await User.findOne({ email: req.body.email });
+    if (userFromDB) {
+      // If a user with the same email exists, return an error.
+      return res.status(400).json({ error: "Email Already Used" });
+    }
+
     try {
       const user = new User(req.body);
       const newUser = await user.save();
       const userToken = jwt.sign({ id: newUser._id }, SECRET); // Declaring Token
-      console.log(`User ID: ${newUser._id}\nUser Token:${userToken}`);
+      // console.log(`User ID: ${newUser._id}\nUser Token:${userToken}`);
       res
         .status(201)
         .cookie("userToken", userToken, { httpOnly: true }) // SENDING COOKIE

@@ -14,10 +14,11 @@ const Create = (props) => {
         })
         .catch(error => {
           const errs = { title: "", content: "" }
-          for (let key of Object.keys(error.response.data)) {
-            errs[key] = error.response.data[key].message
-          }
-          setErrors({ ...errors, ...errs })
+          console.log(error.errors);
+          // for (let key of Object.keys(error.response.data)) {
+          //   errs[key] = error.response.data[key].message
+          // }
+          // setErrors({ ...errors, ...errs })
         })
     }
   return (

@@ -24,7 +24,7 @@ const Register = ({baseUrl}) => {
         .post(baseUrl+'/register', newUser , { withCredentials: true })
         .then(response => {
           console.log(response)
-          navigate('/jobs')
+          navigate('/notes')
         })
         .catch(error => console.log(error))
 
